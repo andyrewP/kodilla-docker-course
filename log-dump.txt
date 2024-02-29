@@ -1,0 +1,74 @@
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker run --name tomcat-server -it -d -p 8888:8080 --rm tomcat:latest
+b1d04c878954cac82065ff3516f3ae796f8ba10ea19f1e26ef16331f830405ac
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker logs -f tomcat-server
+Using CATALINA_BASE:   /usr/local/tomcat
+Using CATALINA_HOME:   /usr/local/tomcat
+Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+Using JRE_HOME:        /opt/java/openjdk
+Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+Using CATALINA_OPTS:
+18-Feb-2024 16:49:48.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.18
+18-Feb-2024 16:49:48.725 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 5 2024 14:39:40 UTC
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.18.0
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.133.1-microsoft-standard-WSL2
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+18-Feb-2024 16:49:48.726 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+18-Feb-2024 16:49:48.733 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Feb-2024 16:49:48.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Feb-2024 16:49:48.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Feb-2024 16:49:48.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Feb-2024 16:49:48.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+18-Feb-2024 16:49:48.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+18-Feb-2024 16:49:48.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+18-Feb-2024 16:49:48.737 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.0].
+18-Feb-2024 16:49:48.739 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.2 15 Mar 2022]
+18-Feb-2024 16:49:48.928 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Feb-2024 16:49:48.941 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [329] milliseconds
+18-Feb-2024 16:49:48.967 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Feb-2024 16:49:48.967 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.18]
+18-Feb-2024 16:49:48.974 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Feb-2024 16:49:48.981 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [39] milliseconds
+^C
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker ps
+CONTAINER ID   IMAGE           COMMAND             CREATED          STATUS          PORTS                    NAMES
+b1d04c878954   tomcat:latest   "catalina.sh run"   12 seconds ago   Up 12 seconds   0.0.0.0:8888->8080/tcp   tomcat-server
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+tomcat                   latest    b50fa14c30cb   2 days ago     455MB
+nginx                    latest    e4720093a3c1   3 days ago     187MB
+andyrew91/kodilla-test   1.1.0     365572093cb3   5 days ago     77.9MB
+ubuntu                   latest    3db8720ecbf5   5 days ago     77.9MB
+postgres                 latest    cdd834fdaf8d   5 days ago     431MB
+andyrew91/kodilla-test   1.0.0     8f725db4c8d5   3 weeks ago    7.06MB
+hello-world              latest    d2c94e258dcb   9 months ago   13.3kB
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker stop b
+b
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>docker image ls
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+tomcat                   latest    b50fa14c30cb   2 days ago     455MB
+nginx                    latest    e4720093a3c1   3 days ago     187MB
+andyrew91/kodilla-test   1.1.0     365572093cb3   5 days ago     77.9MB
+ubuntu                   latest    3db8720ecbf5   5 days ago     77.9MB
+postgres                 latest    cdd834fdaf8d   5 days ago     431MB
+andyrew91/kodilla-test   1.0.0     8f725db4c8d5   3 weeks ago    7.06MB
+hello-world              latest    d2c94e258dcb   9 months ago   13.3kB
+
+C:\Projects\kodilla\kodilla-docker-course\docker-hello-world>
