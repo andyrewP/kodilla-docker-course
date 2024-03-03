@@ -1,11 +1,8 @@
-FROM ubuntu
+FROM gradle:8.6.0-jdk11
 
 WORKDIR /app
 
 COPY . .
-
-RUN apt-get update && \
-    apt-get install -y openjdk-11-jdk;
 
 RUN ./gradlew clean build && ls -la build/libs/
 
