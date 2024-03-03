@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN ./gradlew clean build && ls -la build/libs/
+# RUN ./gradlew clean build && ls -la build/libs/
 
 EXPOSE 8080
 
