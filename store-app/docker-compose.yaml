@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  products-db:
+    container_name: products-database
+    image: mysql:5.7
+    env_file:
+      - ./env/products-api-db.env
+    networks:
+      - products-api
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: "mysqladmin ping -h localhost -u $$MYSQL_USER -p$$MYSQL_PASSWORD"
+      timeout: 20s
+      retries: 5
+      interval: 5s
+
+  rabbitmq:
+    image: rabbitmq
+    hostname: notification_service_rabbitmq
+    ports:
+      - "5672:5672"
+    networks:
+      - products-api
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      timeout: 20s
+      retries: 5
+      interval: 5s
+
+  notifications-api:
+    build:
+      context: ./notifications-api
+    env_file:
+      - ./env/rabbit-mq.env
+    networks:
+      - products-api
+    ports:
+      - "5001:5001"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  products-api:
+    build:
+      context: ./products-api
+    networks:
+      - products-api
+    env_file:
+      - ./env/products-api.env
+      - ./env/rabbit-mq.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      products-db:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  store-frontend:
+    build:
+      context: ./store-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./env/products-api.env
+      - ./env/rabbit-mq.env
+    networks:
+      - products-api
+    depends_on:
+      products-api:
+        condition: service_started
+
+networks:
+  products-api:
+
+volumes:
+  db_data:
