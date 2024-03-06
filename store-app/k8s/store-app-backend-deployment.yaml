@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-api-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: products-api-backend
+  template:
+    metadata:
+      labels:
+        component: products-api-backend
+    spec:
+      containers:
+        - name: store-app-backend
+          image: andyrew91/store-app-backend:1.0.2
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MYSQL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: store-app-secret
+                  key: MYSQL_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: store-app-secret
+                  key: MYSQL_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: store-app-config
