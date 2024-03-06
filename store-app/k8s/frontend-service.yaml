@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-app-frontend
+spec:
+  selector:
+    component: store-app-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
